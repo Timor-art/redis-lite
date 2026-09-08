@@ -1,0 +1,21 @@
+"启动 Redis Lite.bat"
+  s_1388bd180a3994::t_d91bb17af17825 1-28
+README.md
+  s_1388bd180a3994::t_d91bb17af17825 30-41
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "f605590fb77d17b9e75ea21621b23c0563096262",
+  "prompts": {},
+  "sessions": {
+    "s_1388bd180a3994": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a07f01-0908-7521-a073-c5dc8041fb64",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "huanghao <huanghao@lattebank.com>"
+    }
+  }
+}
