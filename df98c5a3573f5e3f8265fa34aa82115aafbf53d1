@@ -1,0 +1,47 @@
+.gitignore
+  s_1388bd180a3994::t_ea1db2904fc6eb 1-3
+README.md
+  s_1388bd180a3994::t_45200ec55c9253 1-87
+demo.mjs
+  s_3b6a17ee3f5b39::t_4ddf1b5c99355f 1-41
+package-lock.json
+  s_1388bd180a3994::t_10969fdce2366f 1-51
+package.json
+  s_3b6a17ee3f5b39::t_32d7bccc090979 1-7
+public/app.js
+  s_3b6a17ee3f5b39::t_27ab8e8ac93919 1-186
+public/index.html
+  s_3b6a17ee3f5b39::t_cc09dab656298b 1-32
+public/style.css
+  s_3b6a17ee3f5b39::t_6747b447852a92 1-4
+server.mjs
+  s_3b6a17ee3f5b39::t_66180ef2d65845 1-201
+test/app.test.mjs
+  s_1388bd180a3994::t_c7648532bd2893 1-119
+"启动 Redis Lite.command"
+  s_1388bd180a3994::t_ecac59cbf0bd60 1-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "df98c5a3573f5e3f8265fa34aa82115aafbf53d1",
+  "prompts": {},
+  "sessions": {
+    "s_1388bd180a3994": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a07f01-0908-7521-a073-c5dc8041fb64",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "huanghao <huanghao@lattebank.com>"
+    },
+    "s_3b6a17ee3f5b39": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "01a07f01-0908-7521-a073-c5dc8041fb64",
+        "model": "unknown"
+      },
+      "human_author": "huanghao <huanghao@lattebank.com>"
+    }
+  }
+}
