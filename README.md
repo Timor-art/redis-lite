@@ -7,7 +7,7 @@
 需要 Node.js 22 或更新版本。
 
 ```sh
-cd /Users/huanghao/Documents/work/redis-lite
+cd redis-lite
 npm ci
 npm start
 ```
