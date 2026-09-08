@@ -1,0 +1,7 @@
+{
+  "name": "redis-lite", "version": "0.1.0", "private": true, "type": "module",
+  "description": "A small, local-only Redis browser",
+  "scripts": {"start": "node server.mjs", "test": "node --test"},
+  "engines": {"node": ">=22"},
+  "dependencies": {"@redis/client": "6.2.1"}
+}

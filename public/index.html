@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Redis Lite · 本地数据浏览器</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/"><span class="brand-icon">▱</span><span>redis<span class="brand-light">lite</span><small>LOCAL DATA BROWSER</small></span></a>
+  <div class="section-label">工作区 <span>01</span></div>
+  <button class="nav-item selected" id="browse-nav"><span>▦</span> 数据浏览器 <span class="nav-arrow">↗</span></button>
+  <div class="connections-heading"><span class="section-label">连接</span><button class="icon-button" id="add-connection" title="新建连接" aria-label="新建连接">＋</button></div>
+  <div id="connection-list"></div>
+  <button id="new-connection" class="new-connection">＋ 新建连接</button>
+  <div class="sidebar-bottom"><span class="local-dot"></span> 只在你的本机运行 <span class="version">v0.1</span></div>
+</aside>
+<main>
+  <header><div class="breadcrumb">工作区 <span>/</span> <b>数据浏览器</b></div><div class="header-tags"><span class="read-only">◉ 只读模式</span><span class="local-tag">LOCAL</span></div></header>
+  <section class="page-heading"><div><div class="eyebrow">YOUR DATA, AT A GLANCE</div><h1>数据浏览器<span class="title-dot">.</span></h1><p>连接、查找、查看。让数据回归简单。</p></div><button class="button" id="connection-settings">＋ 连接 Redis</button></section>
+  <div id="notice" role="status" hidden></div>
+  <section class="workspace" id="workspace" hidden>
+    <div class="workspace-toolbar"><div class="connection-status"><span class="online-dot"></span><strong id="active-name"></strong><span class="separator">/</span><code id="active-address"></code><select class="db-badge" id="active-db" aria-label="选择数据库"></select><form id="custom-db-form" hidden><input id="custom-db" type="number" min="0" max="1024" required aria-label="其他数据库编号" placeholder="DB 编号"><button class="text-button">切换</button></form></div><button class="text-button" id="disconnect">断开连接</button></div>
+    <div class="panels">
+      <section class="key-panel"><div class="panel-heading"><strong>Keys</strong><span id="key-count" class="count">0</span><button id="refresh-keys" class="icon-button" aria-label="刷新 Key 列表" title="刷新">↻</button></div>
+        <form id="search-form"><div class="search-box"><span>⌕</span><input id="pattern" aria-label="Key 搜索模式" placeholder="搜索 Key，如 user:*" autocomplete="off"><button aria-label="搜索" title="搜索">↵</button></div></form>
+        <div class="key-list" id="key-list"></div><div class="key-list-footer"><span id="scan-status">等待扫描</span><button class="text-button" id="load-keys" hidden>继续扫描 ↓</button></div>
+      </section>
+      <section class="detail-panel" id="detail-panel"><div class="detail-empty"><div class="empty-icon">⌘</div><h2>从一个 Key 开始</h2><p>选择左侧的 Key，查看它的内容和详细信息。</p><span class="shortcut">只读浏览 · 安心探索</span></div></section>
+    </div>
+  </section>
+  <section class="welcome" id="welcome"><div class="welcome-art"><div class="stack stack-back"></div><div class="stack stack-mid"></div><div class="stack stack-front"><span>▱</span><span class="stack-dot"></span></div><span class="art-orbit orbit-one">{ }</span><span class="art-orbit orbit-two">key</span></div><div class="eyebrow">A LIGHTER WAY TO EXPLORE</div><h2>小一点的工具，<br>清楚一点的数据。</h2><p>连接你的 Redis，在浏览器里轻松查看。<br>无需桌面客户端，从这里开始。</p><div class="welcome-actions"><button id="welcome-connect" class="button primary">＋ 新建连接</button><button id="demo" class="button">体验演示 →</button></div><div class="welcome-features"><span>◌ 按需加载</span><span>▧ 五种数据类型</span><span>⌁ 本地运行</span></div></section>
+  <footer><span>REDIS LITE <span class="footer-divider">/</span> 轻装上阵，专注数据。</span><span id="footer-status">尚未连接</span></footer>
+</main>
+<dialog id="connect-dialog"><form id="connect-form"><div class="dialog-header"><div><div class="eyebrow">NEW CONNECTION</div><h2>连接到 Redis</h2></div><button class="icon-button" type="button" id="close-dialog" aria-label="关闭">×</button></div><p class="dialog-description">连接信息保存在当前浏览器，密码仅用于本次连接。</p><label>连接名称<input name="name" placeholder="例如：本地开发" maxlength="80"></label><div class="form-row"><label class="grow">主机地址<input name="host" value="127.0.0.1" required autocomplete="off"></label><label class="short">端口<input name="port" type="number" value="6379" min="1" max="65535" required></label></div><div class="form-row"><label class="grow">用户名 <span class="optional">可选</span><input name="username" placeholder="default" autocomplete="off"></label><label class="short">数据库<input name="db" type="number" value="0" min="0" max="1024" required></label></div><label>密码 <span class="optional">可选，不保存</span><input name="password" type="password" autocomplete="off" placeholder="输入 Redis 密码"></label><label class="checkbox-label"><input name="tls" type="checkbox"> 使用 TLS 加密连接</label><div id="connect-error" class="form-error" role="alert" hidden></div><div class="dialog-footer"><span>支持单机 Redis</span><button class="button primary" id="connect-submit">测试并连接 →</button></div></form></dialog>
+</body></html>
