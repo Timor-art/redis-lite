@@ -1,0 +1,25 @@
+"Redis Lite.app/Contents/MacOS/Redis Lite"
+  s_1388bd180a3994::t_4dee22c1a0baf6 1-44
+README.md
+  s_1388bd180a3994::t_4dee22c1a0baf6 17-18
+"停止 Redis Lite.command"
+  s_1388bd180a3994::t_4dee22c1a0baf6 1-15
+"Redis Lite.app/Contents/Info.plist"
+  s_1388bd180a3994::t_4dee22c1a0baf6 1-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "8d38a3c222d140a0f3ab837a179380ba1938ee4d",
+  "prompts": {},
+  "sessions": {
+    "s_1388bd180a3994": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a07f01-0908-7521-a073-c5dc8041fb64",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "huanghao <huanghao@lattebank.com>"
+    }
+  }
+}

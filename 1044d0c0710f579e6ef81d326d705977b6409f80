@@ -1,0 +1,19 @@
+README.md
+  s_1388bd180a3994::t_be08a40655fe49 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "1044d0c0710f579e6ef81d326d705977b6409f80",
+  "prompts": {},
+  "sessions": {
+    "s_1388bd180a3994": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a07f01-0908-7521-a073-c5dc8041fb64",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "huanghao <huanghao@lattebank.com>"
+    }
+  }
+}
