@@ -27,6 +27,18 @@ npm start
 
 如果 macOS 提示无法打开应用，请右键 `Redis Lite.app`，选择“打开”，再确认一次。若首次启动提示依赖安装失败，请确认电脑已安装 Node.js 22 或更新版本，并检查网络后重新双击。服务默认使用 `http://127.0.0.1:6380`；若端口已占用，可以改用命令行方式启动：`PORT=6381 npm start`，然后打开 `http://127.0.0.1:6381`。
 
+### Windows 一键启动
+
+Windows 不使用 macOS 的 `.app` 文件，项目提供了 `启动 Redis Lite.bat`：
+
+1. 在 GitHub 仓库页面点击 `Code` → `Download ZIP`，下载并解压项目。
+2. 先安装 [Node.js 22 或更新版本](https://nodejs.org/)，安装时保持默认选项，并确认勾选加入 PATH。
+3. 打开解压后的 `redis-lite` 文件夹，双击 `启动 Redis Lite.bat`。
+4. 第一次运行会在命令窗口中自动执行依赖安装，随后打开浏览器访问 `http://127.0.0.1:6380`。
+5. 使用结束后，关闭标题为“Redis Lite 服务”的命令窗口即可停止服务。再次双击启动脚本会新开一个服务窗口。
+
+如果端口 6380 已被占用，请打开 PowerShell，在项目目录执行 `$env:PORT=6381; npm start`，然后访问 `http://127.0.0.1:6381`。不要把 `.bat` 文件单独移出项目文件夹，它需要和 `server.mjs`、`package.json` 保持在同一目录。
+
 按 `Ctrl+C` 停止。端口被占用时：
 
 ```sh
