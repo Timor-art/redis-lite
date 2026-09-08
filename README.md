@@ -14,6 +14,8 @@ npm start
 
 打开 <http://127.0.0.1:6380>。当前目录已经安装依赖，直接 `npm start` 即可。macOS 也可双击 `启动 Redis Lite.command`；脚本首次运行会安装缺失的依赖。
 
+macOS 还可以直接双击 `Redis Lite.app`：它会自动安装缺失依赖、启动服务并打开浏览器，不显示终端窗口。再次双击会复用已有服务；需要停止时双击 `停止 Redis Lite.command`。从 GitHub 下载 ZIP 后，请将整个 `redis-lite` 文件夹保留完整，再打开 `.app`。
+
 按 `Ctrl+C` 停止。端口被占用时：
 
 ```sh

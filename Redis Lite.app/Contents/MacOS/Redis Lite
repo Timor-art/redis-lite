@@ -1,0 +1,44 @@
+#!/bin/zsh
+set -u
+APP_ROOT="$(cd -- "$(dirname -- "$0")/../../.." && pwd)"
+PORT="${PORT:-6380}"
+PID_FILE="${TMPDIR:-/tmp}/redis-lite-${USER}.pid"
+LOG_FILE="${TMPDIR:-/tmp}/redis-lite-${USER}.log"
+
+if [[ -f "$PID_FILE" ]]; then
+  old_pid="$(cat "$PID_FILE" 2>/dev/null || true)"
+  if [[ "$old_pid" == <-> ]] && kill -0 "$old_pid" 2>/dev/null; then
+    open "http://127.0.0.1:${PORT}"
+    exit 0
+  fi
+  rm -f "$PID_FILE"
+fi
+
+if [[ ! -x "$(command -v node 2>/dev/null || true)" ]]; then
+  osascript -e 'display alert "Redis Lite 需要 Node.js 22 或更新版本" message "请安装 Node.js 后再启动。" as warning'
+  exit 1
+fi
+
+cd -- "$APP_ROOT" || exit 1
+if [[ ! -d node_modules/@redis/client ]]; then
+  npm ci >>"$LOG_FILE" 2>&1 || {
+    osascript -e 'display alert "Redis Lite 依赖安装失败" message "请查看 /tmp/redis-lite-用户名.log。" as warning'
+    exit 1
+  }
+fi
+
+nohup node server.mjs >>"$LOG_FILE" 2>&1 &
+server_pid=$!
+echo "$server_pid" > "$PID_FILE"
+disown "$server_pid" 2>/dev/null || true
+
+for _ in {1..40}; do
+  if curl -fsS --max-time 1 "http://127.0.0.1:${PORT}/" >/dev/null 2>&1; then
+    open "http://127.0.0.1:${PORT}"
+    exit 0
+  fi
+  sleep 0.15
+done
+
+osascript -e 'display alert "Redis Lite 启动超时" message "请查看 /tmp/redis-lite-用户名.log。" as warning'
+exit 1
